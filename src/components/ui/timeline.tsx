@@ -50,19 +50,19 @@ export const Timeline = ({ data }: { data: TimelineEntry[] }) => {
         {data.map((item, index) => (
           <div
             key={index}
-            className="flex justify-start pt-10 md:pt-20 md:gap-10"
+            className="flex justify-start pt-8 sm:pt-10 md:pt-20 md:gap-10"
           >
-            <div className="sticky flex flex-col md:flex-row z-40 items-center top-20 self-start max-w-xs lg:max-w-sm md:w-full">
-              <div className="h-10 absolute left-3 md:left-3 w-10 rounded-full bg-black/50 flex items-center justify-center border border-white/20">
-                <div className="h-4 w-4 rounded-full bg-blue-500/50 border border-blue-300/50" />
+            <div className="sticky flex flex-col md:flex-row z-40 items-center top-16 sm:top-20 self-start max-w-xs lg:max-w-sm md:w-full">
+              <div className="h-8 sm:h-10 absolute left-2 sm:left-3 md:left-3 w-8 sm:w-10 rounded-full bg-black/50 flex items-center justify-center border border-white/20">
+                <div className="h-3 sm:h-4 w-3 sm:w-4 rounded-full bg-blue-500/50 border border-blue-300/50" />
               </div>
-              <h3 className="hidden md:block text-xl md:pl-20 md:text-3xl font-bold text-blue-200/70">
+              <h3 className="hidden md:block text-lg sm:text-xl md:pl-20 md:text-3xl font-bold text-blue-200/70">
                 {item.title}
               </h3>
             </div>
 
-            <div className="relative pl-20 pr-4 md:pl-4 w-full">
-              <h3 className="md:hidden block text-2xl mb-4 text-left font-bold text-blue-200/70">
+            <div className="relative pl-12 sm:pl-20 pr-2 sm:pr-4 md:pl-4 w-full">
+              <h3 className="md:hidden block text-lg sm:text-2xl mb-3 sm:mb-4 text-left font-bold text-blue-200/70">
                 {item.title}
               </h3>
               {item.content}

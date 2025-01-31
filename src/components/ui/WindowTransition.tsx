@@ -5,24 +5,22 @@ import { motion } from "framer-motion";
 export const windowTransitionVariants = {
   initial: {
     opacity: 0,
-    scale: 0.8,
-    filter: "blur(10px)",
+    scale: 0.95,
   },
   animate: {
     opacity: 1,
     scale: 1,
-    filter: "blur(0px)",
     transition: {
-      duration: 0.3,
-      ease: [0.4, 0, 0.2, 1],
+      duration: 0.2,
+      ease: "easeOut",
     },
   },
   exit: {
     opacity: 0,
-    scale: 0.9,
-    filter: "blur(10px)",
+    scale: 0.95,
     transition: {
-      duration: 0.2,
+      duration: 0.15,
+      ease: "easeIn",
     },
   },
 };

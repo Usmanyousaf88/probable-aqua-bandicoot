@@ -13,7 +13,7 @@ export function Taskbar({ openWindow }: TaskbarProps) {
   const [isStartOpen, setIsStartOpen] = useState(false);
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 flex h-16 sm:h-14 items-center justify-between bg-gradient-to-t from-black/70 via-black/40 to-transparent px-2 sm:px-4 shadow-2xl backdrop-blur-lg border-t border-white/10 hover:from-black/80 transition-colors duration-300">
+    <div className="fixed bottom-0 left-0 right-0 z-50 flex h-16 sm:h-14 items-center justify-between bg-gradient-to-t from-black/70 via-black/40 to-transparent px-2 sm:px-4 shadow-2xl backdrop-blur-lg border-t border-white/10 hover:from-black/80 transition-colors duration-300 mb-0">
       <div className="flex items-center gap-2">
         <motion.button
           whileHover={{ scale: 1.05 }}
@@ -31,9 +31,9 @@ export function Taskbar({ openWindow }: TaskbarProps) {
 
       {isStartOpen && (
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           className="absolute bottom-16 sm:bottom-12 left-0 mb-2 w-[calc(100vw-1rem)] sm:w-80 rounded-lg border border-white/20 bg-black/40 p-4 backdrop-blur-md"
         >
           <div className="mb-4">
@@ -49,7 +49,7 @@ export function Taskbar({ openWindow }: TaskbarProps) {
               { id: "pictures", label: "Pictures", content: "Your pictures will appear here." },
               { id: "music", label: "Music", content: "Your music will appear here." },
               { id: "computer", label: "Computer", content: "Computer management and files." },
-              { id: "control-panel", label: "Control Panel", content: "System settings and controls." },
+              { id: "control-panel", label: "Control Panel", content: "AI Technologies Overview" },
               { id: "help", label: "Help", content: "Windows Vista help and support." }
             ].map((item) => (
               <button

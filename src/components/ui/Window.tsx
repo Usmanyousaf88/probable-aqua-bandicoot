@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import { Rnd } from "react-rnd";
 import { motion, AnimatePresence } from "framer-motion";
 import { Minus, Square, X, Maximize2, Minimize2 } from "lucide-react";
@@ -17,15 +18,16 @@ interface WindowProps {
   className?: string;
 }
 
-export function Window({
+export function Window({ 
   title,
   children,
   defaultPos = { x: 100, y: 100 },
-  defaultSize = { width: 400, height: 300 },
+  defaultSize = { width: 800, height: 600 },
   onClose,
   className,
 }: WindowProps) {
   const [isMaximized, setIsMaximized] = useState(false);
+  const shouldReduceMotion = useReducedMotion();
 
   return (
     <Rnd
@@ -71,29 +73,35 @@ export function Window({
       >
         <div className="flex h-9 items-center justify-between border-b border-white/20 bg-gradient-to-b from-white/20 to-white/10 px-3">
           <div className="text-base font-bold tracking-wide bg-gradient-to-r from-violet-200 via-sky-100 to-violet-200 bg-clip-text text-transparent drop-shadow-lg">{title}</div>
-          <div className="flex space-x-2">
-            <button
+          <div className="flex items-center space-x-3">
+            <motion.button
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => onClose?.()}
-              className="rounded-sm p-1 hover:bg-white/10"
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 transition-all duration-300"
             >
-              <Minus className="h-4 w-4 text-white" />
-            </button>
-            <button
+              <Minus className="h-4 w-4 text-white/80" />
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.15 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => setIsMaximized(!isMaximized)}
-              className="rounded-sm p-1 hover:bg-white/10"
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-white/10 to-white/5 hover:from-white/20 hover:to-white/10 transition-all duration-300"
             >
               {isMaximized ? (
-                <Minimize2 className="h-4 w-4 text-white" />
+                <Minimize2 className="h-4 w-4 text-white/80" />
               ) : (
-                <Maximize2 className="h-4 w-4 text-white" />
+                <Maximize2 className="h-4 w-4 text-white/80" />
               )}
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+              whileHover={{ scale: 1.15, backgroundColor: '#ef4444' }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => onClose?.()}
-              className="rounded-sm p-1 hover:bg-red-500"
+              className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-to-br from-red-500/80 to-rose-600/80 hover:from-red-500 hover:to-rose-600 transition-all duration-300"
             >
               <X className="h-4 w-4 text-white" />
-            </button>
+            </motion.button>
           </div>
         </div>
         <div className="flex-1 overflow-auto p-4">{children}</div>

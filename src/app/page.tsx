@@ -11,7 +11,9 @@ import { Window } from "@/components/ui/Window";
 import { Taskbar } from "@/components/Taskbar";
 import { DesktopIcon } from "@/components/DesktopIcon";
 import { ExplanationCards } from "@/components/ui/ExplanationCards";
-import { FolderHeart, Settings2, Music2, ImagePlus, MailPlus, Chrome, Calendar, Calculator } from "lucide-react";
+import { Brain, Cpu, Waves, Sparkles, Eye, Network, Shield, RefreshCw, Heart, DollarSign, Scale, Workflow } from "lucide-react";
+import { BentoGrid } from "@/components/ui/code";
+import { ControlPanel } from "@/components/ui/ControlPanel";
 
 export default function HomePage() {
   const [notifications, setNotifications] = useState<Notification[]>([]);
@@ -62,7 +64,7 @@ export default function HomePage() {
   };
 
   return (
-    <main className="relative h-screen w-screen overflow-hidden">
+    <main className="fixed inset-0 overflow-hidden">
       <NotificationContainer 
         notifications={notifications}
         onClose={removeNotification}
@@ -90,49 +92,27 @@ export default function HomePage() {
       
       <div className="absolute left-2 sm:left-6 top-6 grid grid-cols-1 gap-4">
         <DesktopIcon 
-          icon={FolderHeart} 
-          label="Documents" 
-          onClick={() => openWindow("documents", "Documents", "Your documents will appear here.")} 
+          icon={Brain} 
+          label="Neural Hub" 
+          onClick={() => openWindow("documents", "Neural Hub", "AI-powered document analysis and processing center.")} 
         />
         <DesktopIcon 
-          icon={ImagePlus} 
-          label="Pictures" 
-          onClick={() => openWindow("pictures", "Pictures", "Your pictures will appear here.")} 
+          icon={Sparkles} 
+          label="Vision Core" 
+          onClick={() => openWindow("pictures", "Vision Core", "Advanced AI image processing and generation.")} 
         />
         <DesktopIcon 
-          icon={Music2} 
-          label="Music" 
-          onClick={() => openWindow("music", "Music", "Your music will appear here.")} 
+          icon={Waves} 
+          label="Audio Matrix" 
+          onClick={() => openWindow("music", "Audio Matrix", "AI-powered audio processing and synthesis.")} 
         />
         <DesktopIcon 
-          icon={Settings2} 
-          label="Settings" 
-          onClick={() => openWindow("settings", "Settings", "System settings and configuration options.")} 
+          icon={Cpu} 
+          label="System Core" 
+          onClick={() => openWindow("settings", "System Core", "AI system configuration and neural network settings.")} 
         />
       </div>
 
-      <div className="absolute right-2 sm:right-6 top-6 grid grid-cols-1 gap-4">
-        <DesktopIcon 
-          icon={MailPlus} 
-          label="Mail" 
-          onClick={() => openWindow("mail", "Mail", "Your email client will appear here.")} 
-        />
-        <DesktopIcon 
-          icon={Chrome} 
-          label="Browser" 
-          onClick={() => openWindow("browser", "Web Browser", "Your web browser will appear here.")} 
-        />
-        <DesktopIcon 
-          icon={Calendar} 
-          label="Calendar" 
-          onClick={() => openWindow("calendar", "Calendar", "Your calendar and events will appear here.")} 
-        />
-        <DesktopIcon 
-          icon={Calculator} 
-          label="Calculator" 
-          onClick={() => openWindow("calculator", "Calculator", "Basic calculator application.")} 
-        />
-      </div>
       
       {windows.map((window) => 
         window.isOpen && (
@@ -144,6 +124,85 @@ export default function HomePage() {
           >
             {window.id === "documents" ? (
               <ExplanationCards />
+            ) : window.id === "control-panel" ? (
+              <ControlPanel />
+            ) : window.id === "pictures" ? (
+              <BentoGrid items={[
+                {
+                  title: "Dynamic UI Adaptation",
+                  meta: "Self-Healing",
+                  description: "Computer vision and DOM analysis for real-time UI changes and adaptations",
+                  icon: <Eye className="w-4 h-4 text-cyan-500" />,
+                  status: "Active",
+                  tags: ["Computer Vision", "DOM", "AI"],
+                  colSpan: 2,
+                  hasPersistentHover: true,
+                },
+                {
+                  title: "Enterprise Scaling",
+                  meta: "10k+ Tasks",
+                  description: "Parallel execution and load balancing for massive workflow automation",
+                  icon: <Network className="w-4 h-4 text-emerald-500" />,
+                  status: "Live",
+                  tags: ["Scaling", "Cloud"],
+                },
+                {
+                  title: "API Integration",
+                  meta: "Multi-API",
+                  description: "Seamless orchestration with Perplexity, Tavily, and Deepgram APIs",
+                  icon: <Workflow className="w-4 h-4 text-purple-500" />,
+                  tags: ["APIs", "Integration"],
+                  colSpan: 2,
+                },
+                {
+                  title: "Security & Compliance",
+                  meta: "HIPAA, GDPR",
+                  description: "Role-based access control and comprehensive audit logging",
+                  icon: <Shield className="w-4 h-4 text-sky-500" />,
+                  status: "Secure",
+                  tags: ["Security", "Compliance"],
+                },
+                {
+                  title: "Error Recovery",
+                  meta: "Auto-Retry",
+                  description: "Intelligent error handling with automated retry and fallback paths",
+                  icon: <RefreshCw className="w-4 h-4 text-rose-500" />,
+                  status: "Active",
+                  tags: ["Recovery", "Resilience"],
+                },
+                {
+                  title: "Healthcare Agents",
+                  meta: "AI-Powered",
+                  description: "Specialized agents for triage, drug discovery, and patient care",
+                  icon: <Heart className="w-4 h-4 text-red-500" />,
+                  tags: ["Healthcare", "AI"],
+                  colSpan: 2,
+                },
+                {
+                  title: "Financial Bots",
+                  meta: "Real-time",
+                  description: "Automated fraud detection and tax optimization systems",
+                  icon: <DollarSign className="w-4 h-4 text-green-500" />,
+                  status: "Active",
+                  tags: ["Finance", "Automation"],
+                },
+                {
+                  title: "Legal Assistants",
+                  meta: "AI-Driven",
+                  description: "Contract analysis and automated court filing systems",
+                  icon: <Scale className="w-4 h-4 text-amber-500" />,
+                  status: "Beta",
+                  tags: ["Legal", "AI"],
+                },
+                {
+                  title: "Future Innovation",
+                  meta: "Next-Gen",
+                  description: "Quantum computing integration and emotional AI development",
+                  icon: <Sparkles className="w-4 h-4 text-indigo-500" />,
+                  tags: ["Innovation", "Future"],
+                  colSpan: 2,
+                }
+              ]} />
             ) : (
               <div className="text-lg font-medium tracking-wide text-blue-100 drop-shadow-md">
                 {window.content}
@@ -153,9 +212,7 @@ export default function HomePage() {
         )
       )}
 
-      <div className="mb-[50px]">
-        <Taskbar openWindow={openWindow} />
-      </div>
+      <Taskbar openWindow={openWindow} />
     </main>
   );
 }

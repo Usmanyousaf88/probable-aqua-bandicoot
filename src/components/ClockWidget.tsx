@@ -23,7 +23,7 @@ export function ClockWidget() {
     >
       <div className="flex items-center justify-between">
         <Clock className="h-5 w-5 text-white/80" />
-        <span className="text-2xl font-bold tracking-wider bg-gradient-to-r from-indigo-200 via-sky-100 to-indigo-200 bg-clip-text text-transparent">
+        <span className="text-2xl font-bold tracking-wider bg-gradient-to-r from-indigo-100 via-white to-indigo-100 bg-clip-text text-transparent">
           {format(time, "HH:mm:ss")}
         </span>
       </div>

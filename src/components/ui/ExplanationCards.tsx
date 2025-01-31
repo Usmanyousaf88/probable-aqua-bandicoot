@@ -60,14 +60,14 @@ const explanations = [
 
 export function ExplanationCards() {
   return (
-    <div className="grid grid-cols-2 gap-8 p-8">
+    <div className="grid grid-cols-2 gap-8 p-8 max-h-[calc(100vh-200px)] overflow-y-auto">
       {explanations.map((item, index) => (
         <motion.div
           key={item.title}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: index * 0.2 }}
-          className="relative overflow-hidden rounded-xl border border-white/20 bg-black/30 p-6 backdrop-blur-lg hover:bg-black/40 transition-all duration-300"
+          className="relative overflow-hidden rounded-xl border border-white/20 bg-black/30 p-8 backdrop-blur-lg hover:bg-black/40 transition-all duration-300 hover:scale-[1.02] hover:shadow-xl hover:shadow-black/20"
         >
           <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-gradient-to-br from-blue-500/30 via-purple-500/30 to-pink-500/30 blur-3xl" />
           
@@ -76,7 +76,7 @@ export function ExplanationCards() {
               <div className="rounded-lg bg-gradient-to-br from-indigo-500 to-violet-500 p-2">
                 <item.icon className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-xl font-bold bg-gradient-to-r from-indigo-100 via-sky-100 to-indigo-100 bg-clip-text text-transparent">{item.title}</h3>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-indigo-50 via-white to-indigo-50 bg-clip-text text-transparent tracking-tight">{item.title}</h3>
             </div>
             
             <p className="mb-6 text-white/80">{item.description}</p>

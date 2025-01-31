@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: 'Segoe UI';
+    src: url('https://fonts.cdnfonts.com/css/segoe-ui-4') format('woff2');
+  }
+
+  :root {
+    --background: #FFFFFF;
+    --foreground: #09090B;
+    --card: #FFFFFF;
+    --card-foreground: #09090B;
+    --popover: #FFFFFF;
+    --popover-foreground: #09090B;
+    --primary: #18181B;
+    --primary-foreground: #FAFAFA;
+    --secondary: #F4F4F5;
+    --secondary-foreground: #18181B;
+    --muted: #F4F4F5;
+    --muted-foreground: #71717A;
+    --accent: #F4F4F5;
+    --accent-foreground: #18181B;
+    --destructive: #EF4444;
+    --destructive-foreground: #FAFAFA;
+    --border: #E4E4E7;
+    --input: #E4E4E7;
+    --ring: #09090B;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: #09090B;
+    --foreground: #FAFAFA;
+    --card: #09090B;
+    --card-foreground: #FAFAFA;
+    --popover: #09090B;
+    --popover-foreground: #FAFAFA;
+    --primary: #FAFAFA;
+    --primary-foreground: #18181B;
+    --secondary: #27272A;
+    --secondary-foreground: #FAFAFA;
+    --muted: #27272A;
+    --muted-foreground: #A1A1AA;
+    --accent: #27272A;
+    --accent-foreground: #FAFAFA;
+    --destructive: #7F1D1D;
+    --destructive-foreground: #FAFAFA;
+    --border: #27272A;
+    --input: #27272A;
+    --ring: #D4D4D8;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+nextjs-portal {
+  display: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgb(0 0 0 / 20%);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(255 255 255 / 20%);
+  border-radius: 5px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(255 255 255 / 30%);
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Text Selection */
+
+::selection {
+  background: rgb(59 130 246 / 30%);
+  color: white;
+}
+
+/* Smooth Transitions */
+
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+@keyframes gradient-x {
+  0% {
+    background-size: 200% 100%;
+    background-position: left center;
+  }
+  100% {
+    background-size: 200% 100%;
+    background-position: right center;
+  }
+}
+
+.animate-gradient-x {
+  animation: gradient-x 8s ease infinite;
+}
+
+/* Animation Classes */
+.hover-scale {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
